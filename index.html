@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D simulation of the solar system| Advanced 3D Solar System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-logo">
+            <i class="fas fa-planet-ringed"></i>
+        </div>
+        <h1 class="intro-title">Harshit Bhadana </h1>
+<p class="intro-subtitle">
+• Frontend Developer Assignment<br>
+• Create a mobile-responsive 3D solar system using Three.js and vanilla JavaScript.<br>
+• Show the Sun + 8 orbiting, rotating planets with realistic lighting and animation.<br>
+• Add speed controls for each planet (via sliders/input, real-time update).<br>
+• No CSS animations; use THREE.Clock, requestAnimationFrame, or GSAP.<br>
+• Optional: pause/resume, stars, tooltips, theme toggle, camera zoom.<br>
+• Submit: ZIP with code + README.md, and a 2–3 min demo video.<br>
+• You'll be judged on visuals, performance, interactivity, and code clarity.
+</p>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </div>
+    
+    <div class="constellation" id="constellation"></div>
+    <div class="floating-particles" id="floating-particles"></div>
+    
+    <div id="canvas-container"></div>
+    
+    <div id="ui-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-planet-ringed"></i>
+                </div>
+                <div class="title">3D simulation of the solar system</div>
+            </div>
+            <div class="controls-container">
+                <button id="pause-btn" class="btn"><i class="fas fa-pause"></i> Pause</button>
+                <button id="reset-btn" class="btn"><i class="fas fa-redo"></i> Reset</button>
+                <button id="info-btn" class="btn"><i class="fas fa-info-circle"></i> Info</button>
+                <button id="theme-toggle" class="btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+        
+        <div id="time-controls">
+            <button class="time-btn" id="time-slow"><i class="fas fa-backward"></i></button>
+            <button class="time-btn active" id="time-normal"><i class="fas fa-play"></i></button>
+            <button class="time-btn" id="time-fast"><i class="fas fa-forward"></i></button>
+            <div id="time-display">Time: 1x</div>
+        </div>
+        
+        <div id="planet-details">
+            <div id="planet-name">Solar System</div>
+            <div id="planet-info">Real-time 3D simulation with accurate planetary orbits and physics</div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Scale</div>
+                    <div class="stat-value">1391.0k km</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Planets</div>
+                    <div class="stat-value">8</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Distance</div>
+                    <div class="stat-value">5900.0M km</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Time</div>
+                    <div class="stat-value">Real-time</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="speed-controls">
+            <div class="resize-handle"></div>
+            <div id="panel-header">
+                <h2>Planetary Speed Controls</h2>
+                <div class="panel-controls">
+                    <div class="panel-control-btn" id="hide-btn"><i class="fas fa-minus"></i></div>
+                    <div class="speed-value">Global: <span id="global-speed-value">1.0</span>x</div>
+                </div>
+            </div>
+            <div class="planets-grid" id="planets-container">
+                <!-- Planet controls will be added dynamically -->
+            </div>
+        </div>
+        
+        <div id="info-panel">
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h3>About This Simulation</h3>
+            <div id="info-content">
+                <p>This advanced 3D solar system simulation is built with Three.js and GSAP for smooth animations.</p>
+                <p><strong>New Features:</strong></p>
+                <ul>
+                    <li>Time controls to speed up/slow down simulation</li>
+                    <li>Detailed planet information panel</li>
+                    <li>Hide/Show control panel with the "−" button</li>
+                    <li>Drag the top handle to resize the panel</li>
+                    <li>Realistic planetary orbits and rotations</li>
+                    <li>Interactive constellations and particles</li>
+                    <li>Modern glassmorphism UI design</li>
+                </ul>
+                <p><strong>Controls:</strong></p>
+                <p>• Drag to rotate the view</p>
+                <p>• Scroll to zoom in/out</p>
+                <p>• Click planets for details</p>
+            </div>
+        </div>
+        
+        <div class="notification" id="notification">Speed reset to default values</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
